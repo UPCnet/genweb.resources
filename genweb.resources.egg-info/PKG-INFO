@@ -1,0 +1,25 @@
+Metadata-Version: 1.0
+Name: genweb.resources
+Version: 1.0
+Summary: Genweb resources package (icons, viewlets, etc)
+Home-page: https://dev.genweb.upc.edu/svn/core
+Author: UPCnet Plone Team
+Author-email: plone.team@upcnet.es
+License: GPL
+Description: Introduction
+        ============
+        
+        
+        
+        Changelog
+        =========
+        
+        1.0dev (unreleased)
+        -------------------
+        
+        - Initial release
+        
+Keywords: genweb resources icons viewlets
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python

@@ -1,0 +1,15 @@
+README.txt
+setup.cfg
+setup.py
+genweb/__init__.py
+genweb.resources.egg-info/PKG-INFO
+genweb.resources.egg-info/SOURCES.txt
+genweb.resources.egg-info/dependency_links.txt
+genweb.resources.egg-info/entry_points.txt
+genweb.resources.egg-info/namespace_packages.txt
+genweb.resources.egg-info/not-zip-safe
+genweb.resources.egg-info/paster_plugins.txt
+genweb.resources.egg-info/requires.txt
+genweb.resources.egg-info/top_level.txt
+genweb/resources/__init__.py
+genweb/resources/tests.py

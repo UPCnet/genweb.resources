@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+ <object name="genweb_resources_images" meta_type="Filesystem Directory View"
+     directory="genweb.resources:skins/genweb_resources_images"/>
+ <object name="genweb_resources_styles" meta_type="Filesystem Directory View"
+     directory="genweb.resources:skins/genweb_resources_styles"/>
+     
+ <skin-path name="*">
+  <layer name="genweb_resources_images" insert-after="custom" />
+  <layer name="genweb_resources_styles" insert-after="custom" />  
+ </skin-path>
+</object>

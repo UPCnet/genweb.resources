@@ -1,0 +1,29 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="genweb.resources">
+
+    <browser:viewlet
+        name="genweb.toolbar"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.toolbar"
+        layer="genweb.core.interfaces.IGenwebLayer"
+        permission="zope2.View"
+        />
+
+    <browser:viewlet
+        name="genweb.documentactions"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
+        class=".viewlets.documentActions"
+        layer="genweb.core.interfaces.IGenwebLayer"
+        permission="zope2.View" 
+        />
+
+     <browser:viewlet
+         name="genweb.languageSelector"
+         manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+         class=".viewlets.enhancedLanguageSelector"
+         layer="genweb.core.interfaces.IGenwebLayer"
+         permission="zope2.View"
+         />  
+</configure>

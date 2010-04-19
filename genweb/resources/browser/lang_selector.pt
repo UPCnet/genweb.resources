@@ -1,0 +1,28 @@
+<tal:langbar tal:define="portal_url context/@@plone_portal_state/portal_url;
+                         available view/available;
+                         languages view/languages;
+                         showFlags view/showFlags;
+                         otra python:view.trim_selected_lang(languages)">
+                
+    <div class="barra_idiomes">
+    <span tal:repeat="lang otra">
+        <span tal:condition="python:available and len(languages)>=2"
+              tal:define="code lang/code;
+                          selected lang/selected">
+            <span tal:condition="not: selected"> 
+                <span><img alt="separador" class="quadradet" tal:attributes="src string:${portal_url}/quadradet.gif"/></span>
+                    <a tal:define="flag lang/flag|nothing;
+                                   name lang/native"
+                       i18n:translate=""
+                       i18n:attributes="title"
+                       tal:attributes="href lang/url;
+                                       title name" 
+                       tal:content="name">
+                       Language
+                    </a>
+            </span> 
+        </span>
+    </span>
+    </div>
+    
+</tal:langbar>

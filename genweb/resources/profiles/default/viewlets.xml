@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<object>
+ <order manager="plone.portalheader" skinname="*" purge="True">
+  <viewlet name="plone.skip_links"/>
+  <viewlet name="plone.site_actions"/>
+  <viewlet name="plone.searchbox"/>
+  <viewlet name="plone.logo"/>
+  <viewlet name="plone.global_sections"/>
+  <viewlet name="genweb.toolbar"/>
+ </order>
+ <order manager="plone.abovecontenttitle" skinname="*" purge="True">
+  <viewlet name="genweb.documentactions"/>
+ </order>
+ <order manager="plone.portaltop" skinname="*" purge="True">
+  <viewlet name="plone.header"/>
+  <viewlet name="genweb.languageSelector"/>
+  <viewlet name="plone.path_bar"/>
+ </order>
+<!-- Si els hidden son * han de definir-se dos cops, un pel Plone Default i un altre per * -->
+ <hidden manager="plone.portaltop" skinname="Plone Default" purge="True">
+  <viewlet name="plone.personal_bar"/>
+  <viewlet name="plone.app.i18n.locales.languageselector"/>
+ </hidden>
+ <hidden manager="plone.portaltop" skinname="*" purge="True">
+  <viewlet name="plone.personal_bar"/>
+  <viewlet name="plone.app.i18n.locales.languageselector"/>
+ </hidden>
+ <hidden manager="plone.belowcontentbody" skinname="Plone Default" purge="True">
+  <viewlet name="plone.abovecontenttitle.documentactions"/>
+ </hidden>  
+ <hidden manager="plone.belowcontentbody" skinname="*" purge="True">
+  <viewlet name="plone.abovecontenttitle.documentactions"/>
+ </hidden>
+</object>

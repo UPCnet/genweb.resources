@@ -1,0 +1,32 @@
+<div i18n:domain="plone"
+     class="documentActions">
+    <tal:docactions tal:condition="view/actions">
+
+    <b class="hiddenStructure" i18n:translate="heading_document_actions">Document Actions</b>
+
+    <ul tal:define="normalizeString nocall: context/@@plone/normalizeString">
+    <tal:actions repeat="daction view/actions">
+        <li tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
+            <a href=""
+               tal:define="icon python:view.getIconFor('plone', daction['id'])"
+               tal:attributes="href daction/url;
+                               title daction/description"
+               tal:condition="icon" >
+               <img tal:attributes="alt daction/title; src string:$icon;"/>
+            </a>
+            <a href=""
+               tal:define="icon python:view.getIconFor('plone', daction['id'])"
+               tal:attributes="href daction/url;
+                               title daction/description"
+               tal:condition="python:not icon"
+               tal:content="daction/title">
+            </a>
+        </li>
+    </tal:actions>
+
+    </ul>
+    </tal:docactions>
+
+    <div tal:replace="structure provider:plone.documentactions" />
+
+</div>

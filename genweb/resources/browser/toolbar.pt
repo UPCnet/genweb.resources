@@ -1,0 +1,144 @@
+<tal:block i18n:domain="plone">
+
+<!-- Eliminades les caixes de login pel CAS -->
+<!--
+<tal:identificacio define="utils context/@@upc.genweb.utils" condition="python: utils.getGWConfig().tipusintranet=='Visible'">
+<div class="validacio"
+     tal:condition="view/show"> 
+
+    <div class=""
+        tal:define="ac_name view/login_name;
+                    ac_password view/login_password">
+        <form action="login_form"
+              name="loginform"
+              method="post"
+              tal:attributes="action view/login_form">
+
+            <input type="hidden" name="form.submitted" value="1" />
+            <input type="hidden" name="came_from" value="" 
+              tal:attributes="value view/came_from" />
+            <input type="hidden" name="js_enabled" id="js_enabled" value="0" />
+            <input type="hidden" name="cookies_enabled" id="cookies_enabled" value="" />
+            <input type="hidden" name="login_name" id="login_name" value="" />
+            <input type="hidden" name="pwd_empty" id="pwd_empty" value="0" />
+
+            <div class="">
+                <label for=""
+                       tal:attributes="for ac_name"
+                       i18n:translate="nom_usuari"
+                       i18n:domain="upc.genwebupc">
+                       User</label>
+                
+                <input class="text"
+                       type="text"
+                       size="15"
+                       alt="Login Name"
+                       tal:attributes="name ac_name; id ac_name;
+                                       value python:request.get(ac_name, '');"
+                       i18n:attributes="alt label_login_name;"/>
+                                            
+                <label for=""
+                       tal:attributes="for ac_password"
+                       i18n:translate="label_password">Password</label>
+                
+                <input class="password"
+                       type="password"
+                       size="15"
+                       alt="Password"
+                       tal:attributes="name ac_password; id ac_password;"
+                       i18n:attributes="alt label_password;"/>
+                       
+                <input class="submitLogin"
+                       type="submit"
+                       value=""/>
+            </div>
+            
+            <div i18n:translate="enable_cookies_message_before_login"
+                 class="cookiesMessage portalMessage"
+                 style="display:none">
+                Cookies are not enabled. You must enable cookies before you
+                can log in.
+            </div>
+            
+        </form>
+    </div>
+    
+</div>
+
+</tal:identificacio>
+-->
+<!--  PERSONAL BAR  -->
+<div id="portal-personaltools-wrapper"
+     tal:condition="not:view/show"
+     i18n:domain="upc.genwebupc">
+
+  <b class="hiddenStructure" i18n:domain="plone" i18n:translate="heading_personal_tools">Personal tools</b> 
+
+<ul id="portal-personaltools"
+    class="visualInline">
+    
+    
+     
+    
+   <tal:block>
+       <li><b><span i18n:translate="genweb-usuari_connectat">
+        User:
+     </span></b> <a 
+           id="user-name"
+           tal:attributes="href view/homelink_url">
+           <span class="visualCaseSensitive"
+                 tal:content="view/user_name">John</span></a></li>
+   </tal:block>
+   
+<li>
+    <b>
+     <span i18n:translate="genweb-opcionspathbar">
+        Options:
+     </span>
+    </b>
+    <span>
+    <span tal:condition="view/canSeeToolLink">
+    <a  
+    i18n:translate="genweb-accesarrel" 
+    tal:attributes="href string:${view/portal_url}/folder_contents">
+    Root folder</a>
+    |
+    </span>
+    <a 
+    i18n:translate="genweb-preferencies"
+    tal:attributes="href string:${view/portal_url}/personalize_form">
+    Preferences</a>
+     |
+    <span>
+    <a href="https://www.upc.edu/comunicacio/www/genweb-upc/formacio" target="newwindow"
+       i18n:translate="genweb-ajuda">
+       Help
+     </a>
+     |
+    </span>
+    <span tal:condition="python: user.has_role(['Manager'])">
+    <a 
+    i18n:domain="plone"
+    i18n:translate="Site Setup" 
+    tal:attributes="href string:${view/portal_url}/plone_control_panel">
+    Site setup</a>
+     |
+    </span>
+    <span tal:condition="view/canSeeToolLink">
+    <a  
+    i18n:domain="plone"
+    i18n:translate="Undo" 
+    tal:attributes="href string:${view/portal_url}/undo_form">
+    Undo</a>    
+    |
+    </span>
+    <a  
+    i18n:translate="genweb-logout"
+    tal:attributes="href string:${view/portal_url}/cas_logout">
+    Log out</a>
+   </span>
+</li>
+</ul>
+</div>
+
+</tal:block>

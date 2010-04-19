@@ -7,9 +7,11 @@
 
   <five:registerPackage package="." initialize=".initialize" />
 
+  <include package=".browser" />
+  
   <genericsetup:registerProfile
       name="default"
-      title="genweb.resources"
+      title="Genweb Resources"
       directory="profiles/default"
       description="Installs the genweb.resources package"
       provides="Products.GenericSetup.interfaces.EXTENSION"

@@ -4,9 +4,12 @@
      directory="genweb.resources:skins/genweb_resources_images"/>
  <object name="genweb_resources_styles" meta_type="Filesystem Directory View"
      directory="genweb.resources:skins/genweb_resources_styles"/>
+ <object name="genweb_resources_templates" meta_type="Filesystem Directory View"
+     directory="genweb.resources:skins/genweb_resources_templates"/>
      
  <skin-path name="*">
   <layer name="genweb_resources_images" insert-after="custom" />
-  <layer name="genweb_resources_styles" insert-after="custom" />  
+  <layer name="genweb_resources_styles" insert-after="custom" />
+  <layer name="genweb_resources_templates" insert-after="custom" />
  </skin-path>
 </object>

@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0'
+version = '3.5'
 
 setup(name='genweb.resources',
       version=version,
@@ -33,6 +33,4 @@ setup(name='genweb.resources',
       [z3c.autoinclude.plugin]
       target = plone
       """,
-      setup_requires=["PasteScript"],
-      paster_plugins=["ZopeSkel"],
       )

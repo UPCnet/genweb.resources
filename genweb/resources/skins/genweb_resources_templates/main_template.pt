@@ -1,5 +1,6 @@
-<metal:page define-macro="master"><metal:doctype define-slot="doctype"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"></metal:doctype>
+<metal:page define-macro="master">
 <metal:block define-slot="top_slot" />
+<metal:doctype define-slot="doctype"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"></metal:doctype>
 <metal:block use-macro="here/global_defines/macros/defines" />
 
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -21,13 +22,29 @@
           tal:define="charset site_properties/default_charset|string:utf-8"
           tal:attributes="content string:text/html;;charset=${charset}" />
 
+    <meta name="generator" content="Plone - http://plone.org" />
+
+    <!-- Internet Explorer fix, forces IE8 into newest possible rendering
+         engine even if it's on an intranet. This has to be defined before any
+         script/style tags. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+
     <metal:baseslot define-slot="base">
       <base tal:attributes="href here/renderBase" /><!--[if lt IE 7]></base><![endif]-->
     </metal:baseslot>
 
-    <meta name="generator" content="Plone - http://plone.org" />
-
     <div tal:replace="structure provider:plone.htmlhead" />
+
+    <!-- IE6 workaround CSS/JS  -->
+    <tal:iefixstart replace="structure string:&lt;!--[if lte IE 7]&gt;" />
+        <style type="text/css" media="all" tal:condition="exists: portal/IEFixes.css"
+               tal:content="string:@import url($portal_url/IEFixes.css);">
+        </style>
+        
+        <script type="text/javascript"
+                tal:attributes="src string:${portal_url}/iefixes.js">
+        </script>
+    <tal:iefixend replace="structure string:&lt;![endif]--&gt;" />
 
     <meta tal:define="metatags python:putils.listMetaTags(here).items()"
           tal:condition="metatags"
@@ -35,22 +52,11 @@
           tal:attributes="name python:keyval[0];
                           content python:keyval[1];" />
 
-    <!-- Internet Explorer CSS Fixes -->
-    <tal:iefixstart replace="structure string:&lt;!--[if IE]&gt;" />
-        <style type="text/css" media="all" tal:condition="exists: portal/IEFixes.css"
-               tal:content="string:@import url($portal_url/IEFixes.css);">
-        </style>
-    <tal:iefixend replace="structure string:&lt;![endif]--&gt;" />
-
     <link tal:replace="structure provider:plone.htmlhead.links" />
-
-    <link rel="alternate" href="" title="RSS 1.0" type="application/rss+xml"
-          tal:condition="python: syntool.isSyndicationAllowed(here)"
-          tal:attributes="href string:$here_url/RSS" />
 
     <!-- Disable IE6 image toolbar -->
     <meta http-equiv="imagetoolbar" content="no" />
-
+    
     <tal:comment replace="nothing"> A slot where you can insert elements in the header from a template </tal:comment>
     <metal:headslot define-slot="head_slot" />
 
@@ -110,7 +116,7 @@
           <metal:block define-slot="content">
             <div metal:define-macro="content"
                  tal:define="show_border context/@@plone/showEditableBorder"
-                 tal:attributes="class python:test(show_border,'documentEditable','documentNoEditable')">
+                 tal:attributes="class python:test(show_border,'documentEditable','')">
 
               <div tal:replace="structure provider:plone.contentviews" />
 
@@ -129,13 +135,7 @@
                 <div id="viewlet-above-content" tal:content="structure provider:plone.abovecontent" />
 
                 <metal:slot metal:define-slot="body">
-                <tal:comment replace="nothing"> 
-                    The div with ID #content will only show up if we're actually on a content
-                    view, never on edit forms, control panels etc. It's meant to only wrap the
-                    actual content that gets rendered on a page, not the other UI elements.
-                </tal:comment>
-                <div id="content"
-                     tal:omit-tag="not:context/@@plone_context_state/is_view_template">
+                <div id="content">
                   <metal:header metal:define-slot="header" tal:content="nothing">
                     Visual Header
                   </metal:header>
@@ -186,18 +186,9 @@
 
       <div class="visualClear"><!-- --></div>
     </div>
-
-    <tal:comment replace="nothing">
-        Aquest javascript serveix per que es vegin correctament les vistes (/sitemap, /search...);
-        Igualment, les customitzarem per que no calgui jaavscript xq es vegin bé.
-        la resta de pàgines es veuen bé sense el javascript, però no sabem on es defineixen sl, sr
-    </tal:comment>
-    <script type="text/javascript"
-            tal:attributes="src string:${portal_url}/hide_columns.js;"></script>
-
-    <div id="kss-spinner"><img tal:attributes="src string:${portal_url}/spinner.gif" alt="loading" /></div>
-
+<script type="text/javascript"
+        tal:attributes="src string:${portal_url}/hide_columns.js;"></script>
+<div id="kss-spinner"><img tal:attributes="src string:${portal_url}/spinner.gif" alt="" /></div>
 </body>
 </html>
 </metal:page>
-

@@ -1,9 +1,7 @@
 Changelog
 =========
 
-3.5 (2010-11-10)
+1.0dev (unreleased)
 -------------------
 
 - Initial release
-- Compatible amb Plone 3 si es vol fer servir per Plone 4, cal fer servir la versió 4.
-- Primer esbós del core i del resources paquet base de "genweb" (a.k.a. ZigaZaga "el codi").

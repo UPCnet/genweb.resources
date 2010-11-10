@@ -134,7 +134,7 @@
     </span>
     <a  
     i18n:translate="genweb-logout"
-    tal:attributes="href string:${view/portal_url}/cas_logout">
+    tal:attributes="href string:${view/portal_url}/logout">
     Log out</a>
    </span>
 </li>

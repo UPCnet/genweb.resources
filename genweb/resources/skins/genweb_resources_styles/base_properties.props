@@ -1,29 +1,33 @@
-title:string=Tema genwebUPC's color, font, logo and border defaults
+title:string=NOT USED in the Sunburst theme by default, see ploneCustom.css for example usage. You can also add your own variables here.
 
-plone_skin:string=Tema genwebUPC
+plone_skin:string=Sunburst Theme
 
-logoName:string=logo.jpg
+logoName:string=logo.png
 
-fontFamily:string=Verdana, Helvetica, Arial, sans-serif
+fontFamily:string="Helvetica Neue", Arial, FreeSans, sans-serif; 
+linkColor:string=#205c90
+editBarColor:string=#75ad0a
+
+compatibilityClassic:string=The below values are copied directly from the old Plone theme to make sure that products that rely on them don't break. 
+
 fontBaseSize:string=69%
 fontColor:string=Black
-fontSmallSize:string=85%
+fontSmallSize:string=90%
 
 backgroundColor:string=White
 
-linkColor:string=#436976
 linkActiveColor:string=Red
 linkVisitedColor:string=Purple
 
 borderWidth:string=1px
 borderStyle:string=solid
-borderStyleAnnotations:string=dashed
+borderStyleAnnotations:string=solid
 
 globalBorderColor:string=#8cacbb
 globalBackgroundColor:string=#dee7ec
 globalFontColor:string=#436976
 
-headingFontFamily:string=Arial, Helvetica, sans-serif
+headingFontFamily:string="Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif
 
 contentViewBorderColor:string=#74ae0b
 contentViewBackgroundColor:string=#cde2a7
@@ -31,7 +35,7 @@ contentViewFontColor:string=#578308
 
 inputFontColor:string=Black
 
-textTransform:string=lowercase
+textTransform:string=none
 
 evenRowBackgroundColor:string=#eef3f5 
 oddRowBackgroundColor:string=transparent

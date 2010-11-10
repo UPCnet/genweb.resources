@@ -8,18 +8,10 @@
     <tal:actions repeat="daction view/actions">
         <li tal:attributes="id python:'document-action-' + normalizeString(daction['id'])">
             <a href=""
-               tal:define="icon python:view.getIconFor('plone', daction['id'])"
                tal:attributes="href daction/url;
                                title daction/description"
-               tal:condition="icon" >
-               <img tal:attributes="alt daction/title; src string:$icon;"/>
-            </a>
-            <a href=""
-               tal:define="icon python:view.getIconFor('plone', daction['id'])"
-               tal:attributes="href daction/url;
-                               title daction/description"
-               tal:condition="python:not icon"
-               tal:content="daction/title">
+	       tal:content="daction/title">
+              
             </a>
         </li>
     </tal:actions>

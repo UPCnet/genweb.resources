@@ -1,7 +1,18 @@
 Changelog
 =========
 
-1.0dev (unreleased)
+4.0b2 (dev)
+-------------------
+Nova versió del paquet, amb els viewlets updatats.
+- Deprecat el viewlet de toolbar, updatant el de per defecte de Plone 4.
+- Afegida l'acció d'usuari 'carpeta arrel'.
+- Updatat el viewlet d'idiomes, utilitzant la estructura del original.
+- Inclusió de la vista de utilitats genweb.utils per *.
+- Desconfiguració dels viewlets per a configuració posterior.
+- Update dels arxius .po i canvi al domini 'genweb'
+
+4.0b1 (2010-11-10)
 -------------------
 
 - Initial release
+- Versió web UPCnet

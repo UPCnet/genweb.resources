@@ -31,6 +31,16 @@ try:
 except:
     from plone.app.i18n.locales.browser.selector import LanguageSelector
 
+class enhancedLanguageSelector(LanguageSelector):
+    render = ViewPageTemplateFile('lang_selector.pt')
+    
+    def trim_selected_lang(self, languages):
+        otra=[]
+        for lang in languages:
+            if not lang['selected']:
+                otra.append(lang)
+        return otra
+
 class toolbar(PersonalBarViewlet):
     index = ViewPageTemplateFile('toolbar.pt')
 
@@ -156,12 +166,3 @@ class toolbar(PersonalBarViewlet):
 class documentActions(DocumentActionsViewlet):
     render = ViewPageTemplateFile("document_actions.pt")
 
-class enhancedLanguageSelector(LanguageSelector):
-    render = ViewPageTemplateFile('lang_selector.pt')
-    
-    def trim_selected_lang(self, languages):
-        otra=[]
-        for lang in languages:
-            if not lang['selected']:
-                otra.append(lang)
-        return otra

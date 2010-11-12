@@ -2,11 +2,11 @@
 <object>
  <order manager="plone.portalheader" skinname="*" purge="True">
   <viewlet name="plone.skip_links"/>
-  <viewlet name="plone.site_actions"/>
+  <viewlet name="plone.personal_bar"/>
   <viewlet name="plone.searchbox"/>
   <viewlet name="plone.logo"/>
   <viewlet name="plone.global_sections"/>
-  <viewlet name="genweb.toolbar"/>
+  <viewlet name="genweb.languageSelector"/>
  </order>
  <order manager="plone.abovecontenttitle" skinname="*" purge="True">
   <viewlet name="genweb.documentactions"/>
@@ -17,12 +17,10 @@
   <viewlet name="plone.path_bar"/>
  </order>
 <!-- Si els hidden son * han de definir-se dos cops, un pel Plone Default i un altre per * -->
- <hidden manager="plone.portaltop" skinname="Plone Default" purge="True">
-  <viewlet name="plone.personal_bar"/>
+ <hidden manager="plone.portalheader" skinname="Plone Default" purge="True">
   <viewlet name="plone.app.i18n.locales.languageselector"/>
  </hidden>
- <hidden manager="plone.portaltop" skinname="*" purge="True">
-  <viewlet name="plone.personal_bar"/>
+ <hidden manager="plone.portalheader" skinname="*" purge="True">
   <viewlet name="plone.app.i18n.locales.languageselector"/>
  </hidden>
  <hidden manager="plone.belowcontentbody" skinname="Plone Default" purge="True">

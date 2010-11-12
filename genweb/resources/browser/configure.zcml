@@ -1,15 +1,9 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
-    i18n_domain="genweb.resources">
+    i18n_domain="genweb">
 
-    <browser:viewlet
-        name="genweb.toolbar"
-        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-        class=".viewlets.toolbar"
-        layer="genweb.core.interfaces.IGenwebLayer"
-        permission="zope2.View"
-        />
+<!-- Eliminat i mantingut com a referencia. En cas de que sigui necessari, la configuracio es fara en el paquet de desti -->
 
     <browser:viewlet
         name="genweb.documentactions"
@@ -26,4 +20,5 @@
          layer="genweb.core.interfaces.IGenwebLayer"
          permission="zope2.View"
          />  
+
 </configure>

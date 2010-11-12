@@ -1,28 +1,34 @@
-<tal:langbar tal:define="portal_url context/@@plone_portal_state/portal_url;
-                         available view/available;
-                         languages view/languages;
-                         showFlags view/showFlags;
-                         otra python:view.trim_selected_lang(languages)">
-                
-    <div class="barra_idiomes">
-    <span tal:repeat="lang otra">
-        <span tal:condition="python:available and len(languages)>=2"
-              tal:define="code lang/code;
-                          selected lang/selected">
-            <span tal:condition="not: selected"> 
-                <span><img alt="separador" class="quadradet" tal:attributes="src string:${portal_url}/quadradet.gif"/></span>
-                    <a tal:define="flag lang/flag|nothing;
-                                   name lang/native"
-                       i18n:translate=""
-                       i18n:attributes="title"
-                       tal:attributes="href lang/url;
-                                       title name" 
-                       tal:content="name">
-                       Language
-                    </a>
-            </span> 
-        </span>
-    </span>
-    </div>
-    
-</tal:langbar>
+<tal:language tal:condition="view/available">
+<ul id="portal-languageselector"
+    tal:define="showFlags view/showFlags;
+                languages view/languages;
+                trimmed_langs python:view.trim_selected_lang(languages);
+                here_url context/absolute_url;
+                portal_url view/portal_url;">
+    <tal:language repeat="lang trimmed_langs">
+    <li tal:define="code lang/code;
+                    selected lang/selected;
+                    codeclass string:language-${code};
+                    current python: selected and 'currentLanguage ' or '';"
+        tal:attributes="class string:${current}${codeclass}">
+        <a href=""
+           tal:define="flag lang/flag|nothing;
+                       name lang/native|lang/name;
+                       showflag python:showFlags and flag;"
+           tal:attributes="href string:${here_url}/switchLanguage?set_language=${code};
+                           title name"
+            ><tal:flag condition="showflag">
+                <img width="14"
+                     height="11"
+                     alt=""
+                     tal:attributes="src string:${portal_url}${flag};
+                                     alt name;
+                                     title name;" />
+            </tal:flag
+            ><tal:nonflag condition="not: showflag"
+                          replace="name">language name</tal:nonflag
+        ></a>
+    </li>
+    </tal:language>
+</ul>
+</tal:language>

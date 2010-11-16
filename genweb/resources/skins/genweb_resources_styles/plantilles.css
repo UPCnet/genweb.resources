@@ -4,7 +4,8 @@
 #content { line-height: 1.5em;}
 ul{
 	margin:0;padding:0;}
-ul li, ol li{ list-style-position:outside; list-style: none; margin-bottom: 0.5em;}
+ul li, ol li{ list-style-position:outside; margin-bottom: 0.5em;}
+/*comentat a ul li{list-style: none;}*/
 ol li {list-style: decimal;}
 form{ margin: 0; }
 .fletxa{ border: 0; margin: 0.25em 0px 0px 0px; padding: 0.1em 0 0.05em 0; }

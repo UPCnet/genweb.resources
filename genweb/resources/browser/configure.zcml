@@ -3,9 +3,10 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="genweb">
 
-<!-- Eliminat i mantingut com a referencia. En cas de que sigui necessari, la configuracio es fara en el paquet de desti -->
+<!-- En cas de que sigui necessari, la configuracio (el wiring) es fara en el paquet/projecte de desti -->
 
-    <browser:viewlet
+    <!--
+     <browser:viewlet
         name="genweb.documentactions"
         manager="plone.app.layout.viewlets.interfaces.IAboveContentTitle"
         class=".viewlets.documentActions"
@@ -19,6 +20,7 @@
          class=".viewlets.enhancedLanguageSelector"
          layer="genweb.core.interfaces.IGenwebLayer"
          permission="zope2.View"
-         />  
+         />
+      -->
 
 </configure>

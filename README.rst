@@ -1,5 +1,6 @@
 Introduction
 ============
+Aquest paquet inclou elements comuns i reaprofitables provenints de Genweb UPC. Aquests element s'extirpen a fi de utlitzar en altres projectes.
 
 Genweb Resources package. Includes:
  - Improved StatusMessages style

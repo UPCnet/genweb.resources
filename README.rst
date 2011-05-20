@@ -1,6 +1,7 @@
 Introduction
 ============
-Aquest paquet inclou elements comuns i reaprofitables provenints de Genweb UPC. Aquests element s'extirpen a fi de utlitzar en altres projectes.
+Aquest paquet inclou elements comuns i reaprofitables provenints de Genweb UPC. Aquests element s'extirpen a fi de utilitzar en altres projectes.
+NO s'utilitza en GW4 (per ara 20/5/2011)
 
 Genweb Resources package. Includes:
  - Improved StatusMessages style

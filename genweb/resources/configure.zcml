@@ -10,7 +10,7 @@
 
   <include package=".browser" />
   
-  <cmf:registerDirectory name="skins" directory="skins" recursive="True" />
+<!--  <cmf:registerDirectory name="skins" directory="skins" recursive="True" />-->
   
   <genericsetup:registerProfile
       name="default"
